@@ -1,3 +1,7 @@
+#ifndef LAZY_HPP
+#define LAZY_HPP
+#define _XOPEN_SOURCE
+
 #include <ucontext.h>
 #include <memory>
 
@@ -200,3 +204,5 @@ auto y = co<int,float>([i=0](auto yield) mutable {
 */
 
 }
+
+#endif
