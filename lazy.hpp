@@ -1,7 +1,7 @@
-#ifdef __APPLE__
+#ifndef LAZY_HPP
+#define LAZY_HPP
+
 #define _XOPEN_SOURCE 700
-// 500, 600, 700
-#endif
 
 #include <ucontext.h>
 #include <memory>
@@ -205,3 +205,5 @@ auto x = lazy::co<float>([](auto yield) {
 */
 
 }
+
+#endif
