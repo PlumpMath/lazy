@@ -1,3 +1,8 @@
+#ifdef __APPLE__
+#define _XOPEN_SOURCE 700
+// 500, 600, 700
+#endif
+
 #include <ucontext.h>
 #include <memory>
 
@@ -183,20 +188,20 @@ auto co(F f) {
   return impl::CoroutineBase<F, impl::CoHandle<IN, OUT> >{f};
 }
 
-
 /*example :
-auto y = co<int,float>([i=0](auto yield) mutable {
+
+auto y = lazy::co<int, float>([i = 0](auto yield) mutable {
   while(1) {
-    i+=yield(i);
+    i += yield(i);
   }
 });
 
-  auto x = lazy::co<float>( [](auto yield) {
-     while(1) {
-        yield(42);
-      }
-
+auto x = lazy::co<float>([](auto yield) {
+   while(1) {
+      yield(42);
+    }
 });
+
 */
 
 }
